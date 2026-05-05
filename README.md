@@ -1,0 +1,1 @@
+Personal academic and professional portfolio showcasing AI, medical image analysis, dataset creation, research projects, certifications, and technical skills. Designed to present real-world work in machine learning and healthcare AI with a clean and professional interface.
