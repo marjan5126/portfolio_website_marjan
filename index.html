@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shahriar Marjan — Data Analyst & AI Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E1E35;
+  --navy-mid:#162840;
+  --navy-lit:#1D3557;
+  --teal:#0D7377;
+  --teal2:#14919B;
+  --teal3:#45C4B0;
+  --gold:#D4A853;
+  --gold2:#F0C878;
+  --card:rgba(255,255,255,0.042);
+  --card-b:rgba(255,255,255,0.075);
+  --card-hover:rgba(255,255,255,0.065);
+  --text:#EEE8E0;
+  --text2:#A8BFCC;
+  --text3:#6B8A9A;
+  --white:#fff;
+  --sh:0 4px 24px rgba(0,0,0,.22),0 1px 4px rgba(0,0,0,.14);
+  --sh-lg:0 12px 48px rgba(0,0,0,.28),0 4px 12px rgba(0,0,0,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--text);line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 55% at 8% 18%,rgba(13,115,119,.13) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 45% at 92% 82%,rgba(13,115,119,.07) 0%,transparent 60%),
+    radial-gradient(ellipse 35% 35% at 55% 5%,rgba(212,168,83,.055) 0%,transparent 55%);
+  z-index:0;
+}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2.5rem;height:62px;
+  transition:all .4s;
+}
+nav.scrolled{
+  background:rgba(14,30,53,.94);
+  backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--card-b);
+  box-shadow:0 2px 20px rgba(0,0,0,.2);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.28rem;font-weight:700;color:var(--teal3);
+  letter-spacing:.4px;display:flex;align-items:center;gap:8px;
+}
+.nav-logo-pip{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--teal3);animation:pip 2.2s ease-in-out infinite;
+}
+@keyframes pip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.nav-ul{display:flex;gap:2rem;list-style:none}
+.nav-ul a{
+  font-size:.76rem;font-weight:500;color:var(--text3);
+  letter-spacing:.9px;text-transform:uppercase;
+  border-bottom:2px solid transparent;padding-bottom:2px;
+  transition:all .22s;
+}
+.nav-ul a:hover,.nav-ul a.on{color:var(--teal3);border-color:var(--teal3)}
+.nav-cta{
+  padding:.46rem 1.15rem;
+  background:transparent;border:1.5px solid var(--teal);
+  border-radius:5px;font-size:.76rem;font-weight:600;
+  color:var(--teal3);letter-spacing:.3px;
+  transition:all .3s;cursor:pointer;
+}
+.nav-cta:hover{background:var(--teal);color:var(--white);box-shadow:0 4px 14px rgba(13,115,119,.35)}
+.hbg{display:none;cursor:pointer;flex-direction:column;gap:5px;border:none;background:none;padding:4px}
+.hbg span{width:22px;height:2px;background:var(--text2);border-radius:2px;display:block;transition:all .3s}
+
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:0 2.5rem;position:relative;
+}
+.hero-wrap{
+  max-width:1100px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;
+  align-items:center;padding-top:62px;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;color:var(--teal3);letter-spacing:2.5px;
+  text-transform:uppercase;margin-bottom:1.5rem;
+}
+.hero-line{width:26px;height:1.5px;background:var(--teal3)}
+.hero-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--teal3);
+  animation:pip 2.2s ease-in-out infinite;
+}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.2rem,5.5vw,5.2rem);
+  font-weight:700;line-height:1.0;
+  color:var(--white);margin-bottom:.55rem;
+  letter-spacing:-.3px;
+}
+.hero-name-em{color:var(--teal3)}
+.hero-role{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.82rem;color:var(--gold);
+  letter-spacing:.8px;margin-bottom:1.75rem;
+}
+.hero-bio{
+  font-size:1rem;color:var(--text2);
+  line-height:1.85;max-width:500px;margin-bottom:2.5rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-p{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:.8rem 1.75rem;
+  background:linear-gradient(135deg,var(--teal),var(--teal2));
+  color:var(--white);border-radius:7px;font-weight:600;
+  font-size:.88rem;border:none;cursor:pointer;transition:all .3s;
+}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(13,115,119,.38)}
+.btn-o{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:.8rem 1.75rem;
+  border:1.5px solid rgba(255,255,255,.15);
+  color:var(--text);border-radius:7px;font-weight:500;
+  font-size:.88rem;transition:all .3s;
+}
+.btn-o:hover{border-color:var(--teal3);color:var(--teal3);background:rgba(13,115,119,.1);transform:translateY(-2px)}
+.hero-stats{
+  display:flex;gap:2.5rem;
+  padding-top:2rem;border-top:1px solid var(--card-b);
+}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;font-weight:700;color:var(--teal3);
+  line-height:1;display:block;
+}
+.stat-l{font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:1.2px;margin-top:3px;display:block}
+
+.hero-photo-side{display:flex;align-items:center;justify-content:center;position:relative}
+.hero-photo-outer{position:relative;width:340px;height:340px}
+.ring-1{
+  position:absolute;inset:-20px;border-radius:50%;
+  border:1.5px dashed rgba(69,196,176,.28);
+  animation:orb 28s linear infinite;
+}
+.ring-2{
+  position:absolute;inset:-40px;border-radius:50%;
+  border:1px dashed rgba(212,168,83,.18);
+  animation:orb 46s linear infinite reverse;
+}
+@keyframes orb{to{transform:rotate(360deg)}}
+.ring-1::before,.ring-1::after{
+  content:'';position:absolute;width:10px;height:10px;border-radius:50%;top:50%;transform:translateY(-50%);
+}
+.ring-1::before{right:-5px;background:var(--teal3);box-shadow:0 0 0 3px rgba(69,196,176,.18)}
+.ring-1::after{left:-5px;background:var(--gold);box-shadow:0 0 0 3px rgba(212,168,83,.18)}
+.hero-photo-circle{
+  width:100%;height:100%;border-radius:50%;overflow:hidden;
+  border:3px solid var(--teal);
+  box-shadow:0 0 0 8px rgba(13,115,119,.1),var(--sh-lg);
+  background:linear-gradient(135deg,var(--navy-lit),var(--navy-mid));
+  position:relative;
+}
+.hero-photo-circle img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.photo-ph{
+  width:100%;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:1rem;
+}
+.photo-ph-init{
+  width:100px;height:100px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--teal2));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--white);
+}
+.photo-ph-txt{font-size:.75rem;color:var(--text3);text-align:center;padding:0 1.5rem;line-height:1.6}
+.htag{
+  position:absolute;background:rgba(14,30,53,.92);
+  backdrop-filter:blur(12px);border:1px solid var(--card-b);
+  border-radius:9px;padding:.58rem .95rem;
+  font-size:.72rem;color:var(--text2);
+  box-shadow:var(--sh);display:flex;align-items:center;gap:7px;font-weight:500;
+}
+.htag-dp{width:7px;height:7px;border-radius:50%;background:var(--teal3);flex-shrink:0}
+.htag-ieee{top:4%;right:-12%}
+.htag-pubs{bottom:12%;left:-18%}
+
+.section{padding:6rem 2.5rem;position:relative;z-index:1}
+.section-alt{background:rgba(255,255,255,.018)}
+.container{max-width:1100px;margin:0 auto}
+.sec-lab{
+  font-family:'JetBrains Mono',monospace;font-size:.68rem;
+  color:var(--teal3);letter-spacing:3px;text-transform:uppercase;
+  margin-bottom:.75rem;display:flex;align-items:center;gap:10px;
+}
+.sec-lab::after{content:'';width:30px;height:1.5px;background:var(--teal3)}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;
+  color:var(--white);line-height:1.15;margin-bottom:.75rem;
+}
+.sec-divider{width:38px;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal3));border-radius:2px;margin-bottom:1rem}
+.sec-sub{font-size:.94rem;color:var(--text2);max-width:560px;line-height:1.85;margin-bottom:3rem}
+
+.about-layout{display:grid;grid-template-columns:290px 1fr;gap:4rem;align-items:start}
+.about-card{
+  background:var(--card);border:1px solid var(--card-b);
+  border-radius:18px;padding:1.75rem;
+  box-shadow:var(--sh);position:sticky;top:78px;
+}
+.about-photo-mini{
+  width:66px;height:66px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--teal);margin-bottom:.9rem;
+  background:linear-gradient(135deg,var(--navy-lit),var(--navy-mid));
+}
+.about-photo-mini img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.about-photo-init{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--teal3);
+}
+.aname{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:2px}
+.arole{font-size:.72rem;color:var(--teal3);font-family:'JetBrains Mono',monospace;margin-bottom:1.5rem}
+.arow{display:flex;align-items:flex-start;gap:10px;padding:.52rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.82rem}
+.arow:last-of-type{border-bottom:none}
+.arow-i{color:var(--teal3);min-width:16px;font-size:.85rem}
+.arow-k{color:var(--text3);min-width:58px;font-size:.72rem;padding-top:1px}
+.arow-v{color:var(--text2);font-size:.82rem}
+.a-links{display:flex;flex-wrap:wrap;gap:.42rem;margin-top:1.5rem}
+.a-link{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:.3rem .72rem;border:1px solid var(--card-b);border-radius:100px;
+  font-size:.7rem;color:var(--text2);transition:all .25s;
+}
+.a-link:hover{border-color:var(--teal);color:var(--teal3);background:rgba(13,115,119,.12)}
+
+.edu-wrap{display:flex;flex-direction:column;gap:1.75rem;margin-bottom:2.5rem}
+.edu-row{display:flex;gap:1.2rem}
+.edu-spine{display:flex;flex-direction:column;align-items:center}
+.edu-dot{width:10px;height:10px;border-radius:50%;background:var(--teal3);border:2.5px solid var(--navy);box-shadow:0 0 0 2px var(--teal);flex-shrink:0;margin-top:4px}
+.edu-line{width:2px;flex:1;background:linear-gradient(to bottom,rgba(69,196,176,.4),transparent);margin-top:6px;min-height:20px}
+.edu-deg{font-size:.94rem;font-weight:600;color:var(--white);margin-bottom:2px}
+.edu-school{font-size:.8rem;color:var(--teal3);margin-bottom:4px}
+.edu-yr{font-size:.73rem;color:var(--text3);display:flex;gap:.75rem}
+.pill{
+  display:inline-flex;align-items:center;gap:3px;
+  padding:2px 8px;border-radius:4px;font-size:.68rem;font-weight:600;
+  margin-top:.4rem;width:fit-content;
+}
+.p-teal{background:rgba(69,196,176,.12);color:var(--teal3);border:1px solid rgba(69,196,176,.2)}
+.p-gold{background:rgba(212,168,83,.12);color:var(--gold);border:1px solid rgba(212,168,83,.2)}
+.p-blue{background:rgba(37,99,235,.12);color:#7BAAF7;border:1px solid rgba(37,99,235,.2)}
+.p-green{background:rgba(16,185,129,.1);color:#34D399;border:1px solid rgba(16,185,129,.2)}
+.p-purple{background:rgba(139,92,246,.1);color:#A78BFA;border:1px solid rgba(139,92,246,.2)}
+.p-red{background:rgba(239,68,68,.1);color:#F87171;border:1px solid rgba(239,68,68,.2)}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.tag{
+  padding:.28rem .7rem;background:rgba(255,255,255,.04);
+  border:1px solid var(--card-b);border-radius:100px;
+  font-size:.74rem;color:var(--text2);transition:all .2s;cursor:default;
+}
+.tag:hover{background:rgba(13,115,119,.15);border-color:rgba(69,196,176,.3);color:var(--teal3)}
+.subh{font-size:.7rem;color:var(--teal3);letter-spacing:2px;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:1rem}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.4rem}
+.skill-card{
+  background:var(--card);border:1px solid var(--card-b);
+  border-radius:15px;padding:1.75rem;transition:all .35s;
+  position:relative;overflow:hidden;
+}
+.skill-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--teal3),transparent);
+  opacity:0;transition:opacity .35s;
+}
+.skill-card:hover{border-color:rgba(69,196,176,.25);transform:translateY(-5px);box-shadow:var(--sh-lg)}
+.skill-card:hover::after{opacity:1}
+.skill-icon{width:44px;height:44px;border-radius:11px;background:rgba(13,115,119,.18);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:1rem}
+.skill-title{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.85rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.38rem}
+.stag{
+  padding:.2rem .52rem;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);border-radius:4px;
+  font-size:.68rem;color:var(--text2);font-family:'JetBrains Mono',monospace;transition:all .2s;
+}
+.skill-card:hover .stag{background:rgba(13,115,119,.15);border-color:rgba(69,196,176,.2);color:var(--teal3)}
+
+.fpills{display:flex;gap:.6rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.fpill{
+  padding:.38rem .92rem;border:1.5px solid var(--card-b);border-radius:100px;
+  font-size:.76rem;color:var(--text3);background:transparent;cursor:pointer;
+  transition:all .22s;font-family:'Inter',sans-serif;font-weight:500;
+}
+.fpill:hover,.fpill.on{border-color:var(--teal);color:var(--teal3);background:rgba(13,115,119,.12)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.4rem}
+.proj-card{
+  background:var(--card);border:1px solid var(--card-b);
+  border-radius:15px;padding:1.75rem;transition:all .35s;display:flex;flex-direction:column;
+}
+.proj-card:hover{border-color:rgba(69,196,176,.28);transform:translateY(-5px);box-shadow:var(--sh-lg)}
+.proj-cat{display:flex;align-items:center;gap:6px;font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:.95rem}
+.pdot{width:6px;height:6px;border-radius:50%}
+.proj-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:.52rem;line-height:1.3}
+.proj-desc{font-size:.83rem;color:var(--text2);line-height:1.75;flex:1;margin-bottom:1.2rem}
+.proj-techs{display:flex;flex-wrap:wrap;gap:.35rem}
+.ptech{
+  padding:.18rem .48rem;background:rgba(13,115,119,.13);
+  border:1px solid rgba(13,115,119,.22);border-radius:4px;
+  font-size:.66rem;color:var(--teal3);font-family:'JetBrains Mono',monospace;
+}
+
+.pub-list{display:flex;flex-direction:column;gap:1rem}
+.pub-card{
+  background:var(--card);border:1px solid var(--card-b);
+  border-radius:13px;padding:1.5rem;display:flex;gap:1.2rem;
+  align-items:flex-start;transition:all .3s;
+}
+.pub-card:hover{border-color:rgba(69,196,176,.25);transform:translateX(5px);box-shadow:var(--sh)}
+.pub-n{
+  font-family:'Cormorant Garamond',serif;font-size:1.85rem;
+  font-weight:700;color:rgba(255,255,255,.1);line-height:1;min-width:36px;
+}
+.pub-title{font-size:.9rem;font-weight:600;color:var(--white);margin-bottom:.32rem;line-height:1.45}
+.pub-authors{font-size:.78rem;color:var(--text3);margin-bottom:.22rem}
+.pub-venue{font-size:.75rem;color:var(--text3);font-style:italic}
+.pub-links{display:flex;gap:.48rem;margin-top:.7rem;flex-wrap:wrap}
+.pl{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:.24rem .68rem;border-radius:5px;font-size:.68rem;font-weight:600;
+  border:1px solid;transition:all .22s;
+}
+.pl-paper{background:rgba(37,99,235,.1);color:#7BAAF7;border-color:rgba(37,99,235,.2)}
+.pl-paper:hover{background:#1A56DB;color:var(--white)}
+.pl-cert{background:rgba(212,168,83,.1);color:var(--gold);border-color:rgba(212,168,83,.2)}
+.pl-cert:hover{background:var(--gold);color:var(--white)}
+.pl-doi{background:rgba(16,185,129,.1);color:#34D399;border-color:rgba(16,185,129,.2)}
+.pl-doi:hover{background:#059669;color:var(--white)}
+.grp-title{
+  font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-weight:700;
+  color:var(--white);margin:2.5rem 0 1.2rem;display:flex;align-items:center;gap:12px;
+}
+.grp-title::after{content:'';flex:1;height:1px;background:var(--card-b)}
+
+.cert-search{
+  width:100%;padding:.72rem 1.15rem;background:var(--card);
+  border:1px solid var(--card-b);border-radius:9px;color:var(--text);
+  font-size:.88rem;font-family:'Inter',sans-serif;outline:none;
+  transition:border-color .3s;margin-bottom:2rem;
+}
+.cert-search:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,115,119,.1)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1.15rem}
+.cert-card{
+  background:var(--card);border:1px solid var(--card-b);
+  border-radius:15px;padding:1.4rem;transition:all .35s;
+}
+.cert-card:hover{border-color:rgba(212,168,83,.35);transform:translateY(-4px);box-shadow:var(--sh-lg)}
+.cert-icon-box{
+  width:48px;height:48px;border-radius:11px;
+  background:rgba(212,168,83,.12);border:1px solid rgba(212,168,83,.2);
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:.9rem;
+}
+.cert-icon-box.blue{background:rgba(37,99,235,.12);border-color:rgba(37,99,235,.2)}
+.cert-icon-box.teal{background:rgba(13,115,119,.15);border-color:rgba(69,196,176,.2)}
+.cert-name{font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.28rem;line-height:1.35}
+.cert-issuer{font-size:.76rem;color:var(--gold);font-weight:500;margin-bottom:.22rem}
+.cert-issuer.blue{color:#7BAAF7}
+.cert-issuer.teal{color:var(--teal3)}
+.cert-date{font-size:.71rem;color:var(--text3);margin-bottom:.85rem}
+.cert-btns{display:flex;gap:.42rem;flex-wrap:wrap}
+.cb{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:.26rem .68rem;border-radius:5px;font-size:.68rem;font-weight:600;
+  border:1px solid;transition:all .22s;
+}
+.cb-view{background:rgba(13,115,119,.12);color:var(--teal3);border-color:rgba(69,196,176,.2)}
+.cb-view:hover{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.cb-dl{background:rgba(37,99,235,.1);color:#7BAAF7;border-color:rgba(37,99,235,.2)}
+.cb-dl:hover{background:#1A56DB;color:var(--white);border-color:#1A56DB}
+
+.cv-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:1.4rem;margin-bottom:2.5rem}
+.cv-card{
+  background:var(--card);border:1.5px solid var(--card-b);
+  border-radius:18px;padding:2rem;transition:all .35s;
+  position:relative;overflow:hidden;
+}
+.cv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.cv-r::before{background:linear-gradient(90deg,var(--teal),var(--teal3))}
+.cv-l::before{background:linear-gradient(90deg,#1A56DB,#7C3AED)}
+.cv-g::before{background:linear-gradient(90deg,var(--gold),#F59E0B)}
+.cv-card:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:rgba(255,255,255,.12)}
+.cv-icon{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.15rem}
+.cv-icon-r{background:rgba(13,115,119,.18)}
+.cv-icon-l{background:rgba(37,99,235,.15)}
+.cv-icon-g{background:rgba(212,168,83,.14)}
+.cv-title{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-weight:700;color:var(--white);margin-bottom:.38rem}
+.cv-desc{font-size:.8rem;color:var(--text2);line-height:1.7;margin-bottom:1.2rem}
+.cv-tags{display:flex;flex-wrap:wrap;gap:.38rem;margin-bottom:1.35rem}
+.cv-dl{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:.78rem;border-radius:9px;font-size:.86rem;font-weight:600;
+  border:none;cursor:pointer;transition:all .3s;
+}
+.cv-dl-r{background:linear-gradient(135deg,var(--teal),var(--teal2));color:var(--white)}
+.cv-dl-r:hover{box-shadow:0 6px 22px rgba(13,115,119,.38);transform:translateY(-1px)}
+.cv-dl-l{background:linear-gradient(135deg,#1A56DB,#7C3AED);color:var(--white)}
+.cv-dl-l:hover{box-shadow:0 6px 22px rgba(26,86,219,.38);transform:translateY(-1px)}
+.cv-dl-g{background:linear-gradient(135deg,var(--gold),#D97706);color:var(--white)}
+.cv-dl-g:hover{box-shadow:0 6px 22px rgba(212,168,83,.38);transform:translateY(-1px)}
+.cv-admin{
+  background:rgba(13,115,119,.08);border:1px solid rgba(69,196,176,.18);
+  border-radius:14px;padding:1.75rem 2rem;
+}
+.cv-admin-title{font-size:.86rem;font-weight:600;color:var(--teal3);margin-bottom:.28rem}
+.cv-admin-sub{font-size:.76rem;color:var(--text3);line-height:1.6;margin-bottom:1.4rem}
+.cv-admin-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-end}
+.cv-admin-grp{display:flex;flex-direction:column;gap:.32rem;flex:1;min-width:195px}
+.cv-admin-lbl{font-size:.65rem;color:var(--teal3);letter-spacing:1.5px;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
+.cv-admin-in{
+  width:100%;padding:.58rem .88rem;background:rgba(255,255,255,.05);
+  border:1.5px solid var(--card-b);border-radius:7px;color:var(--text);
+  font-size:.78rem;font-family:'JetBrains Mono',monospace;outline:none;transition:border-color .3s;
+}
+.cv-admin-in:focus{border-color:var(--teal)}
+.cv-admin-btn{
+  padding:.6rem 1.35rem;background:var(--teal);color:var(--white);
+  border:none;border-radius:7px;font-size:.82rem;font-weight:600;
+  cursor:pointer;transition:all .3s;white-space:nowrap;
+}
+.cv-admin-btn:hover{background:var(--teal2);box-shadow:0 4px 16px rgba(13,115,119,.3)}
+
+.contact-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:3rem}
+.c-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:flex-start}
+.c-icon{
+  width:42px;height:42px;border-radius:9px;background:rgba(13,115,119,.15);
+  border:1px solid rgba(69,196,176,.18);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.c-label{font-size:.68rem;color:var(--text3);margin-bottom:2px;text-transform:uppercase;letter-spacing:.5px}
+.c-val{font-size:.86rem;color:var(--text2)}
+.c-val a{color:var(--teal3);transition:color .2s}
+.c-val a:hover{color:var(--teal3)}
+.soc-row{display:flex;gap:.48rem;flex-wrap:wrap;margin-top:2rem}
+.soc-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:.4rem .9rem;border:1px solid var(--card-b);border-radius:7px;
+  font-size:.74rem;color:var(--text2);transition:all .22s;font-weight:500;
+}
+.soc-btn:hover{border-color:var(--teal);color:var(--teal3);background:rgba(13,115,119,.12)}
+.contact-form{
+  background:var(--card);border:1px solid var(--card-b);
+  border-radius:18px;padding:1.75rem;box-shadow:var(--sh);
+}
+.form-group{margin-bottom:1.1rem}
+.form-label{display:block;font-size:.73rem;color:var(--text3);margin-bottom:.36rem;font-weight:500}
+.form-input{
+  width:100%;padding:.7rem .95rem;background:rgba(255,255,255,.05);
+  border:1.5px solid var(--card-b);border-radius:7px;color:var(--text);
+  font-size:.86rem;font-family:'Inter',sans-serif;outline:none;transition:all .3s;
+}
+.form-input:focus{border-color:var(--teal);background:rgba(13,115,119,.06);box-shadow:0 0 0 3px rgba(13,115,119,.1)}
+.form-textarea{min-height:112px;resize:vertical}
+.form-submit{
+  width:100%;padding:.82rem;background:linear-gradient(135deg,var(--teal),var(--teal2));
+  color:var(--white);border:none;border-radius:9px;font-size:.9rem;font-weight:600;
+  cursor:pointer;transition:all .3s;font-family:'Inter',sans-serif;
+}
+.form-submit:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(13,115,119,.38)}
+
+footer{
+  border-top:1px solid var(--card-b);
+  padding:2.5rem 2.5rem;text-align:center;font-size:.78rem;color:var(--text3);
+  position:relative;z-index:1;
+}
+footer strong{color:var(--teal3)}
+footer a{color:var(--text3);transition:color .2s}
+footer a:hover{color:var(--teal3)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:all .65s cubic-bezier(.25,.8,.25,1)}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+@media(max-width:960px){
+  .hero-wrap{grid-template-columns:1fr;gap:3rem;text-align:center}
+  .hero-photo-side{order:-1}
+  .hero-photo-outer{width:240px;height:240px}
+  .htag-ieee,.htag-pubs{display:none}
+  .hero-bio,.hero-eyebrow{margin-left:auto;margin-right:auto}
+  .hero-btns,.hero-stats{justify-content:center}
+  .about-layout{grid-template-columns:1fr}
+  .about-card{position:static}
+  .contact-layout{grid-template-columns:1fr}
+  .nav-ul{display:none}
+  .hbg{display:flex}
+  nav{padding:0 1.25rem}
+}
+@media(max-width:600px){
+  .section{padding:4rem 1.25rem}
+  #hero{padding:0 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-pip"></div>
+    Shahriar Marjan
+  </div>
+  <ul class="nav-ul" id="nav-ul">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Papers</a></li>
+    <li><a href="#certifications">Certificates</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="location.href='#contact'">Get in Touch</button>
+  <button class="hbg" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<section id="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-line"></div>
+        <div class="hero-dot"></div>
+        AI Researcher · Data Analyst · Bangladesh
+      </div>
+      <h1 class="hero-name">
+        Shahriar<br>
+        <span class="hero-name-em">Marjan</span>
+      </h1>
+      <p class="hero-role">Data Analyst &nbsp;/&nbsp; AI Researcher &nbsp;/&nbsp; Deep Learning</p>
+      <p class="hero-bio">Shahriar Marjan, Daffodil International University (CGPA: 3.76), currently based in Uttara, Sector 9, Road 10, House 9. Working in AI, medical image analysis, and dataset development. Data analyst focusing on real-world healthcare and research datasets. Interested in building machine learning solutions for practical applications.</p>
+      <div class="hero-btns">
+        <a href="#cv" class="btn-p">⬇ Download CV</a>
+        <a href="#projects" class="btn-o">◈ Projects</a>
+        <a href="#contact" class="btn-o">✉ Contact</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="stat-n">11</span><span class="stat-l">Publications</span></div>
+        <div><span class="stat-n">Medical Image Analyst</span><span class="stat-l">AI-Based Diagnosis</span></div>
+        <div><span class="stat-n">3.76</span><span class="stat-l">CGPA / 4.00</span></div>
+      </div>
+    </div>
+
+    <div class="hero-photo-side">
+      <div class="hero-photo-outer">
+        <div class="ring-1"></div>
+        <div class="ring-2"></div>
+        <div class="hero-photo-circle">
+         <img src="photo.jpg" alt="Shahriar Marjan"> 
+        </div>
+        <div class="htag htag-ieee"><div class="htag-dp"></div>🏛 IEEE Member 2025</div>
+        <div class="htag htag-pubs"><div class="htag-dp" style="background:var(--gold)"></div>📄 11 Publications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section section-alt">
+  <div class="container">
+    <div class="about-layout">
+      <div>
+        <div class="about-card reveal">
+          <div class="about-photo-mini">
+            <div class="about-photo-init">SM</div>
+          </div>
+          <p class="aname">Shahriar Marjan</p>
+          <p class="arole">// data-analyst + ai-researcher</p>
+          <div class="arow"><span class="arow-i">📍</span><span class="arow-k">Location</span><span class="arow-v">Sharankhola, Bagerhat, BD</span></div>
+          <div class="arow"><span class="arow-i">🎓</span><span class="arow-k">Varsity</span><span class="arow-v">Daffodil Int'l University</span></div>
+          <div class="arow"><span class="arow-i">📧</span><span class="arow-k">Email</span><span class="arow-v"><a href="mailto:marjan15-5126@diu.edu.bd" style="color:var(--teal3)">marjan15-5126@diu.edu.bd</a></span></div>
+          <div class="arow"><span class="arow-i">📱</span><span class="arow-k">Phone</span><span class="arow-v">+880 1610-465168</span></div>
+          <div class="arow"><span class="arow-i">🌿</span><span class="arow-k">Field</span><span class="arow-v">Sundarbans Mangrove Forest</span></div>
+          <div class="a-links">
+            <a href="https://github.com/shahriarmarjan" class="a-link" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/shahriarmarjan" class="a-link" target="_blank">LinkedIn</a>
+            <a href="https://orcid.org/0000-0000-0000-0000" class="a-link" target="_blank">ORCID</a>
+            <a href="https://scholar.google.com" class="a-link" target="_blank">Scholar</a>
+            <a href="https://researchgate.net/profile/Shahriar-Marjan" class="a-link" target="_blank">ResearchGate</a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="sec-lab reveal">01 — About</p>
+        <h2 class="sec-title reveal d1">Researcher at the Edge<br>of the Sundarbans</h2>
+        <div class="sec-divider reveal d1"></div>
+        <p class="sec-sub reveal d2" style="margin-bottom:2rem">I bridge field-level data collection with state-of-the-art deep learning — personally collecting 14,614 leaf images across 25 mangrove species, and designing clinical AI pipelines for 604 patients across 4 hospitals in Bangladesh. My goal: AI that works in the real world.</p>
+
+        <p class="subh reveal">Education</p>
+        <div class="edu-wrap">
+          <div class="edu-row reveal d1">
+            <div class="edu-spine"><div class="edu-dot"></div><div class="edu-line"></div></div>
+            <div>
+              <p class="edu-deg">B.Sc. Computer Science & Engineering</p>
+              <p class="edu-school">Daffodil International University</p>
+              <p class="edu-yr"><span>Jan 2022 – Dec 2025</span><span>Dhaka-1216</span></p>
+              <span class="pill p-teal">⭐ CGPA: 3.76 / 4.00</span>
+              <p style="font-size:.78rem;color:var(--text3);margin-top:.6rem;line-height:1.65"><strong style="color:var(--text2)">Thesis:</strong> Cascaded YOLOv8 & ConvNeXt-Tiny for Disc-Level PLID Detection on Lumbar MRI with XAI<br><strong style="color:var(--text2)">Supervisor:</strong> Md. Assaduzzaman, Asst. Prof., CSE, DIU</p>
+            </div>
+          </div>
+          <div class="edu-row reveal d2">
+            <div class="edu-spine"><div class="edu-dot"></div><div class="edu-line"></div></div>
+            <div>
+              <p class="edu-deg">H.S.C — Science</p>
+              <p class="edu-school">Sharankhola Govt. Degree College</p>
+              <p class="edu-yr"><span>2017 – 2019</span></p>
+              <span class="pill p-teal">⭐ GPA: 4.33 / 5.00</span>
+            </div>
+          </div>
+          <div class="edu-row reveal d3">
+            <div class="edu-spine"><div class="edu-dot"></div></div>
+            <div>
+              <p class="edu-deg">S.S.C — Science</p>
+              <p class="edu-school">Rayenda Govt. Pilot High School</p>
+              <p class="edu-yr"><span>2011 – 2017</span></p>
+              <span class="pill p-teal">⭐ GPA: 4.72 / 5.00</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="subh reveal">Research Interests</p>
+        <div class="tags reveal" style="margin-bottom:2rem">
+          <span class="tag">Deep Learning</span><span class="tag">Computer Vision</span><span class="tag">Medical Imaging</span><span class="tag">Explainable AI</span><span class="tag">Mangrove Ecology</span><span class="tag">Health Informatics</span><span class="tag">IoT Systems</span><span class="tag">Data Analytics</span><span class="tag">Graph Neural Networks</span><span class="tag">Sustainable Agriculture</span>
+        </div>
+
+        <p class="subh reveal">Awards & Memberships</p>
+        <div class="reveal" style="display:flex;flex-direction:column;gap:.6rem">
+          <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--text2)"><span style="color:var(--gold)">🏆</span> 4th Place — DATATHON 2024, DIU, Dhaka</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--text2)"><span style="color:var(--gold)">🥇</span> Champion — Science Fair 2018 (Team Leader)</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--text2)"><span style="color:var(--teal3)">🏛</span> IEEE Student Member — Computer Society + EMBS (2025)</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--text2)"><span style="color:var(--teal3)">💻</span> Take Off Programming Contest, DIU 2022</div>
+          <div style="display:flex;align-items:center;gap:10px;font-size:.84rem;color:var(--text2)"><span style="color:var(--teal3)">📊</span> Crack Dataset Contest, DIU 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="container">
+    <p class="sec-lab reveal">02 — Skills</p>
+    <h2 class="sec-title reveal d1">Technical Arsenal</h2>
+    <div class="sec-divider reveal d1"></div>
+    <p class="sec-sub reveal d2">From SQL databases to deep learning pipelines — tools I deploy to transform raw, messy data into research outcomes and business decisions.</p>
+    <div class="skills-grid">
+      <div class="skill-card reveal"><div class="skill-icon">📊</div><p class="skill-title">Data Analytics & Visualization</p><div class="skill-tags"><span class="stag">Excel</span><span class="stag">Power BI</span><span class="stag">PivotTables</span><span class="stag">DAX</span><span class="stag">Power Query</span><span class="stag">XLOOKUP</span><span class="stag">Google Sheets</span><span class="stag">KPI Dashboards</span></div></div>
+      <div class="skill-card reveal d1"><div class="skill-icon">🐍</div><p class="skill-title">Python & Data Science</p><div class="skill-tags"><span class="stag">pandas</span><span class="stag">NumPy</span><span class="stag">Matplotlib</span><span class="stag">Seaborn</span><span class="stag">Scikit-learn</span><span class="stag">Jupyter</span><span class="stag">Streamlit</span></div></div>
+      <div class="skill-card reveal d2"><div class="skill-icon">🗄</div><p class="skill-title">SQL & Databases</p><div class="skill-tags"><span class="stag">MySQL</span><span class="stag">Joins</span><span class="stag">CTEs</span><span class="stag">Window Functions</span><span class="stag">RANK()</span><span class="stag">Subqueries</span></div></div>
+      <div class="skill-card reveal"><div class="skill-icon">🧠</div><p class="skill-title">Deep Learning & ML</p><div class="skill-tags"><span class="stag">PyTorch</span><span class="stag">TensorFlow</span><span class="stag">Keras</span><span class="stag">YOLOv8</span><span class="stag">EfficientNet-B4</span><span class="stag">ConvNeXt</span><span class="stag">GCN</span><span class="stag">GAT</span></div></div>
+      <div class="skill-card reveal d1"><div class="skill-icon">🔍</div><p class="skill-title">Explainable AI (XAI)</p><div class="skill-tags"><span class="stag">SHAP</span><span class="stag">LIME</span><span class="stag">Grad-CAM</span><span class="stag">Score-CAM</span><span class="stag">ROC-AUC</span><span class="stag">Cohen's Kappa</span><span class="stag">MCC</span></div></div>
+      <div class="skill-card reveal d2"><div class="skill-icon">⚙</div><p class="skill-title">Data Engineering & Tools</p><div class="skill-tags"><span class="stag">CLAHE</span><span class="stag">pHash</span><span class="stag">DICOM/MRI</span><span class="stag">OpenCV</span><span class="stag">Git</span><span class="stag">Kaggle</span><span class="stag">LaTeX</span><span class="stag">Arduino</span><span class="stag">ESP32</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section section-alt">
+  <div class="container">
+    <p class="sec-lab reveal">03 — Projects</p>
+    <h2 class="sec-title reveal d1">What I've Built</h2>
+    <div class="sec-divider reveal d1"></div>
+    <p class="sec-sub reveal d2">Real-world AI systems, data pipelines, and deployed applications — every project addresses a concrete research or business problem.</p>
+    <div class="fpills reveal">
+      <button class="fpill on" onclick="fp('all',this)">All</button>
+      <button class="fpill" onclick="fp('analytics',this)">Analytics</button>
+      <button class="fpill" onclick="fp('ai',this)">AI / Deep Learning</button>
+      <button class="fpill" onclick="fp('web',this)">Web Apps</button>
+      <button class="fpill" onclick="fp('iot',this)">IoT</button>
+    </div>
+    <div class="proj-grid" id="pg">
+      <div class="proj-card reveal" data-cat="analytics"><p class="proj-cat"><span class="pdot" style="background:var(--gold)"></span>Data Analytics</p><h3 class="proj-title">Retail Sales Performance Dashboard</h3><p class="proj-desc">DAX measures and Power Query pipelines surfacing monthly revenue trends and top-10 KPIs across 4 sales regions. Interactive drill-through dashboard for region-level comparison.</p><div class="proj-techs"><span class="ptech">Power BI</span><span class="ptech">DAX</span><span class="ptech">Power Query</span><span class="ptech">Excel</span></div></div>
+      <div class="proj-card reveal d1" data-cat="analytics"><p class="proj-cat"><span class="pdot" style="background:var(--gold)"></span>SQL Database</p><h3 class="proj-title">Flood Disaster Management SQL System</h3><p class="proj-desc">20-table normalized MySQL database identifying 8 high-risk zones using 3-table joins. Delivered 10+ stakeholder reports with RANK(), CTEs — donation trends, shelter overload, volunteer efficiency.</p><div class="proj-techs"><span class="ptech">MySQL</span><span class="ptech">CTEs</span><span class="ptech">RANK()</span><span class="ptech">Window Functions</span></div></div>
+      <div class="proj-card reveal d2" data-cat="analytics"><p class="proj-cat"><span class="pdot" style="background:var(--gold)"></span>Data Pipeline</p><h3 class="proj-title">Automated Student Attendance System</h3><p class="proj-desc">Face-recognition pipeline auto-writing timestamped records to Excel. Eliminated 100% of manual data entry with automated daily summary reports and zero errors.</p><div class="proj-techs"><span class="ptech">Python</span><span class="ptech">OpenCV</span><span class="ptech">pandas</span><span class="ptech">openpyxl</span></div></div>
+      <div class="proj-card reveal" data-cat="ai"><p class="proj-cat"><span class="pdot" style="background:var(--teal3)"></span>AI Research</p><h3 class="proj-title">Sundarbans Mangrove Leaf Classification</h3><p class="proj-desc">Self-collected 14,614-image dataset of 25 species from the Sundarbans. CLAHE + pHash dedup pipeline for 5 CNN baselines. Novel dual-branch EfficientNetB4 fusion with Grad-CAM XAI.</p><div class="proj-techs"><span class="ptech">EfficientNet-B4</span><span class="ptech">PyTorch</span><span class="ptech">Grad-CAM</span><span class="ptech">CLAHE</span></div></div>
+      <div class="proj-card reveal d1" data-cat="ai"><p class="proj-cat"><span class="pdot" style="background:var(--teal3)"></span>Medical AI</p><h3 class="proj-title">Lumbar Disc Herniation (PLID) Detection</h3><p class="proj-desc">Cascaded YOLOv8 + ConvNeXt-Tiny on 604-patient MRI dataset from 4 Bangladesh hospitals. Triple XAI: SHAP, LIME, Score-CAM. Target: Medical Image Analysis (Q1).</p><div class="proj-techs"><span class="ptech">YOLOv8</span><span class="ptech">ConvNeXt</span><span class="ptech">SHAP</span><span class="ptech">LIME</span></div></div>
+      <div class="proj-card reveal d2" data-cat="ai web"><p class="proj-cat"><span class="pdot" style="background:#7BAAF7"></span>AI Web App</p><h3 class="proj-title">PlumCam — Plum Disease Detection</h3><p class="proj-desc">Hybrid GCN-GAT for plum leaf and fruit disease detection. Streamlit + Django web app. Accepted, presented, and published at IDAA 2025.</p><div class="proj-techs"><span class="ptech">GCN-GAT</span><span class="ptech">Streamlit</span><span class="ptech">Django</span><span class="ptech">PyTorch</span></div></div>
+      <div class="proj-card reveal" data-cat="ai web"><p class="proj-cat"><span class="pdot" style="background:#7BAAF7"></span>AI Web App</p><h3 class="proj-title">SapoLeafNet — Sapodilla Leaf Disease</h3><p class="proj-desc">Lightweight GAT for automated sapodilla disease detection. React + Django app for real-time AI inference. Published IDAA 2025.</p><div class="proj-techs"><span class="ptech">GAT</span><span class="ptech">React</span><span class="ptech">Django</span><span class="ptech">PyTorch</span></div></div>
+      <div class="proj-card reveal d1" data-cat="iot"><p class="proj-cat"><span class="pdot" style="background:#A78BFA"></span>IoT System</p><h3 class="proj-title">Smart Baby Cradle — IoT Monitor</h3><p class="proj-desc">ESP32-CAM with multi-sensor monitoring — temp, humidity, cry detection via MFCC-CNN. Automated cradle movement, live image capture, Telegram alerts to parents.</p><div class="proj-techs"><span class="ptech">ESP32-CAM</span><span class="ptech">MFCC-CNN</span><span class="ptech">GCN</span><span class="ptech">Telegram API</span></div></div>
+      <div class="proj-card reveal d2" data-cat="web"><p class="proj-cat"><span class="pdot" style="background:var(--text3)"></span>Dev Tool</p><h3 class="proj-title">Cryptoss — Ubuntu ML Setup Script</h3><p class="proj-desc">Bash automation for complete Ubuntu ML environment — Python, C/C++, all ML frameworks, IDEs, and GNOME customizations in a single command.</p><div class="proj-techs"><span class="ptech">Bash</span><span class="ptech">Ubuntu</span><span class="ptech">Automation</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="publications" class="section">
+  <div class="container">
+    <p class="sec-lab reveal">04 — Research</p>
+    <h2 class="sec-title reveal d1">Publications</h2>
+    <div class="sec-divider reveal d1"></div>
+    <p class="sec-sub reveal d2">11 peer-reviewed works across journals and international conferences. Each paper includes individual access links.</p>
+
+    <h3 class="grp-title reveal">Journal Articles</h3>
+    <div class="pub-list" style="margin-bottom:2rem">
+      <div class="pub-card reveal">
+        <div class="pub-n">01</div>
+        <div>
+          <span class="pill p-gold">Q1 Journal · Published · Elsevier</span>
+          <p class="pub-title">A Comprehensive Image Dataset of Plum Leaf and Fruit for Disease Classification</p>
+          <p class="pub-authors">R. A. Nayeem, A. Muhib, <strong style="color:var(--white)">S. Marjan</strong>, M. Hasan, Md. Assaduzzaman</p>
+          <p class="pub-venue">Data in Brief, Vol. 60, 111625, 2025 · Elsevier</p>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1016/j.dib.2025.111625" target="_blank" class="pl pl-doi">🔗 DOI / Full Text</a>
+            <a href="https://www.sciencedirect.com/science/article/pii/S2352340925001580" target="_blank" class="pl pl-paper">📄 ScienceDirect</a>
+            <a href="PASTE_J1_CERTIFICATE_DRIVE_LINK" target="_blank" class="pl pl-cert">🏅 Certificate</a>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card reveal d1">
+        <div class="pub-n">02</div>
+        <div>
+          <span class="pill p-purple">Under Review · Q1 Target</span>
+          <p class="pub-title">Cascaded YOLOv8 and ConvNeXt-Tiny for Disc-Level PLID Detection on Lumbar MRI with Integrated XAI</p>
+          <p class="pub-authors"><strong style="color:var(--white)">S. Marjan</strong> et al.</p>
+          <p class="pub-venue">Target: Medical Image Analysis — Under Review</p>
+          <div class="pub-links">
+            <a href="PASTE_J2_PREPRINT_LINK" target="_blank" class="pl pl-paper">📄 Preprint / Draft</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="grp-title reveal">Conference Papers</h3>
+    <div class="pub-list">
+      <div class="pub-card reveal">
+        <div class="pub-n">C1</div>
+        <div>
+          <span class="pill p-blue">5th ICECTE 2026 · RUET</span>
+          <p class="pub-title">Lightweight GAT-Based Framework for Intelligent Frangipani Leaf Disease Classification</p>
+          <p class="pub-authors"><strong style="color:var(--white)">S. Marjan</strong>, A. K. Bristy, A. K. Ghosh, D. Bhowmik, R. A. Nayeem, Md. M. Islam Mithu</p>
+          <p class="pub-venue">5th ICECTE 2026, RUET, Bangladesh</p>
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/document/11429347" target="_blank" class="pl pl-paper">📄 Paper</a>
+            <a href="https://drive.google.com/file/d/1ZC0yEmxa-3mfEPFJ3RKMxlU0qa29wWyX/view?usp=sharing" target="_blank" class="pl pl-cert">🏅 Certificate</a>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card reveal d1">
+        <div class="pub-n">C2</div>
+        <div>
+          <span class="pill p-teal">IDAA 2025 · DIU · Presented</span>
+          <p class="pub-title">PlumCam: A Hybrid GCN–GAT Framework for Intelligent Detection of Plum Leaf and Fruit Diseases</p>
+          <p class="pub-authors"><strong style="color:var(--white)">S. Marjan</strong>, R. A. Nayeem, S.M. A. Al Muhib, A. K. Bristy, KH R. Islam, Md. Assaduzzaman</p>
+          <p class="pub-venue">IDAA 2025, Daffodil International University</p>
+          <div class="pub-links">
+            <a href="PASTE_C2_PAPER_LINK" target="_blank" class="pl pl-paper">📄 Paper</a>
+            <a href="https://drive.google.com/file/d/1pZnGrBxuvtfguyApXHnOzALOflZHeVqP/view?usp=sharing" target="_blank" class="pl pl-cert">🏅 Certificate</a>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card reveal d2">
+        <div class="pub-n">C3</div>
+        <div>
+          <span class="pill p-teal">IDAA 2025 · DIU · Presented</span>
+          <p class="pub-title">SapoLeafNet: A Lightweight Graph Attention Network for Automated Detection of Sapodilla Leaf Diseases</p>
+          <p class="pub-authors"><strong style="color:var(--white)">S. Marjan</strong>, Md. M. Kabir, A. K. Ghosh, D. Bhowmik, R. A. Nayeem, Md. M. Islam Mithu</p>
+          <p class="pub-venue">IDAA 2025, Daffodil International University</p>
+          <div class="pub-links">
+            <a href="PASTE_C3_PAPER_LINK" target="_blank" class="pl pl-paper">📄 Paper</a>
+            <a href="https://drive.google.com/file/d/1mG1rnrXnchGpu9lbzIiLwC0cvyCQCloD/view?usp=sharing" target="_blank" class="pl pl-cert">🏅 Certificate</a>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-n">C4</div>
+        <div>
+          <span class="pill p-teal">IDAA 2025 · DIU · Presented</span>
+          <p class="pub-title">Design and Implementation of a Multi-Sensor ESP32 Based IoT Smart Baby Cradle with MFCC–CNN and GCN</p>
+          <p class="pub-authors"><strong style="color:var(--white)">S. Marjan</strong>, S. Khan, R. A. Nayeem, A. K. Ghosh, A. K. Bristy, S. A. Al Muhib, M. A. Rasel</p>
+          <p class="pub-venue">IDAA 2025, Daffodil International University</p>
+          <div class="pub-links">
+            <a href="PASTE_C4_PAPER_LINK" target="_blank" class="pl pl-paper">📄 Paper</a>
+            <a href="https://drive.google.com/file/d/1US1DUXlL9tvuyyu5_JwFLeO1sXe0-f72/view?usp=sharing" target="_blank" class="pl pl-cert">🏅 Certificate</a>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card reveal d1">
+        <div class="pub-n">C5</div>
+        <div>
+          <span class="pill p-blue">RAAICON 2025 · MIST</span>
+          <p class="pub-title">Machine Learning-Based Typhoid Prediction Using Clinical Data</p>
+          <p class="pub-authors">A. K. Ghosh, <strong style="color:var(--white)">S. Marjan</strong>, R. A. Nayeem, S.M. A. Al Muhib, M. H. Islam</p>
+          <p class="pub-venue">RAAICON 2025, MIST, Bangladesh</p>
+          <div class="pub-links">
+            <a href="PASTE_C5_PAPER_LINK" target="_blank" class="pl pl-paper">📄 Paper</a>
+            <a href="https://drive.google.com/file/d/1D4z9B67slIZesZrZD-wp7wrK69t-V5KN/view?usp=sharing" target="_blank" class="pl pl-cert">🏅 Certificate</a>
+          </div>
+        </div>
+      </div>
+      <div class="pub-card reveal d2">
+        <div class="pub-n">C6–C10</div>
+        <div>
+          <span class="pill p-teal">IDAA 2025 · DIU · Co-Author</span>
+          <p class="pub-title">Additional Conference Papers (Co-Author, 5 papers)</p>
+          <p class="pub-authors">Neuro-Fuzzy GNN for Mangrove Disease · YOLO-E3CA for Karanda Leaf Disease · ConvNeXt 3-Class Stroke Detection · MobileViT Carambola Disease · ConstitutionGPT-BD Legal QA</p>
+          <p class="pub-venue">IDAA 2025, Daffodil International University, Bangladesh</p>
+          <div class="pub-links">
+            <a href="PASTE_C6_10_CERTIFICATES_DRIVE_LINK" target="_blank" class="pl pl-cert">🏅 Certificates</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="section section-alt">
+  <div class="container">
+    <p class="sec-lab reveal">05 — Certificates</p>
+    <h2 class="sec-title reveal d1">Certifications</h2>
+    <div class="sec-divider reveal d1"></div>
+    <p class="sec-sub reveal d2">Professional certifications, conference participation certificates, academic training, and IEEE memberships — each with individual view and download access.</p>
+
+    <input type="text" class="cert-search reveal" placeholder="🔍  Search certificates..." oninput="sc(this.value)">
+
+    <h3 class="grp-title reveal">🏛 IDAA 2025 Conference Certificates</h3>
+    <div class="cert-grid">
+      <div class="cert-card" data-name="PlumCam GCN GAT plum disease IDAA 2025 DIU">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">PlumCam — GCN-GAT Plum Disease Detection</p>
+        <p class="cert-issuer teal">IDAA 2025 · Daffodil International University</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1pZnGrBxuvtfguyApXHnOzALOflZHeVqP/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1pZnGrBxuvtfguyApXHnOzALOflZHeVqP/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="SapoLeafNet GAT sapodilla leaf disease IDAA 2025">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">SapoLeafNet — GAT Sapodilla Leaf Disease</p>
+        <p class="cert-issuer teal">IDAA 2025 · Daffodil International University</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1mG1rnrXnchGpu9lbzIiLwC0cvyCQCloD/view?usp=drive_link" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1mG1rnrXnchGpu9lbzIiLwC0cvyCQCloD/view?usp=drive_link" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="Smart Baby Cradle ESP32 MFCC CNN IoT IDAA 2025">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">Smart Baby Cradle — ESP32 + MFCC-CNN IoT</p>
+        <p class="cert-issuer teal">IDAA 2025 · Daffodil International University</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1US1DUXlL9tvuyyu5_JwFLeO1sXe0-f72/view?usp=drive_link" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1US1DUXlL9tvuyyu5_JwFLeO1sXe0-f72/view?usp=drive_link" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="Neuro Fuzzy GNN mangrove disease IDAA 2025">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">Neuro-Fuzzy GNN — Mangrove Disease</p>
+        <p class="cert-issuer teal">IDAA 2025 · Daffodil International University</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1_CaErmigV5K_7chepmc_CXHdOqz-glAH/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1_CaErmigV5K_7chepmc_CXHdOqz-glAH/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="YOLO E3CA Karanda leaf disease IDAA 2025">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">YOLO-E3CA — Karanda Leaf Disease Detection</p>
+        <p class="cert-issuer teal">IDAA 2025 · Daffodil International University</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="PASTE_IDAA_CERT_5_VIEW_LINK" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="PASTE_IDAA_CERT_5_DOWNLOAD_LINK" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="ConvNeXt stroke detection three class IDAA 2025">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">ConvNeXt — 3-Class Stroke Detection</p>
+        <p class="cert-issuer teal">IDAA 2025 · Daffodil International University</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1U9-4jpWiFNW1KNzfLGass8RCHhsa65gS/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1U9-4jpWiFNW1KNzfLGass8RCHhsa65gS/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="MobileViT carambola disease detection IDAA 2025">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">MobileViT — Carambola Disease Detection</p>
+        <p class="cert-issuer teal">IDAA 2025 · Daffodil International University</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/15NDg5uxLkbnt4_tXlszPHemCTwseuK9j/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/15NDg5uxLkbnt4_tXlszPHemCTwseuK9j/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="ConstitutionGPT BD bilingual legal QA IDAA 2025">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">ConstitutionGPT-BD — Bilingual Legal QA</p>
+        <p class="cert-issuer teal">IDAA 2025 · Daffodil International University</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/105OTwnWgBhXyBdr7GzQ3LFMCj30ICOjq/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/105OTwnWgBhXyBdr7GzQ3LFMCj30ICOjq/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="Typhoid prediction clinical data RAAICON 2025 MIST">
+        <div class="cert-icon-box teal">📜</div>
+        <p class="cert-name">ML-Based Typhoid Prediction</p>
+        <p class="cert-issuer teal">RAAICON 2025 · MIST, Bangladesh</p>
+        <p class="cert-date">Conference Participation Certificate · 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1D4z9B67slIZesZrZD-wp7wrK69t-V5KN/view?usp=drive_link" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1D4z9B67slIZesZrZD-wp7wrK69t-V5KN/view?usp=drive_link" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="grp-title reveal">🎓 Academic & Professional Training</h3>
+    <div class="cert-grid">
+      <div class="cert-card" data-name="Python Machine Learning ICT Ministry Bangladesh 80 hours professional">
+        <div class="cert-icon-box">🐍</div>
+        <p class="cert-name">Python & Machine Learning</p>
+        <p class="cert-issuer">ICT Ministry, Bangladesh</p>
+        <p class="cert-date">80 Hours Professional Certificate</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1P4k0128VyV0MYk7zz60qFsMeS5NW4J7w/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1P4k0128VyV0MYk7zz60qFsMeS5NW4J7w/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="Medical Imaging Computer Vision DIU HIRL bootcamp advanced">
+        <div class="cert-icon-box">🏥</div>
+        <p class="cert-name">Medical Imaging & Computer Vision</p>
+        <p class="cert-issuer">DIU HIRL Lab Bootcamp</p>
+        <p class="cert-date">Advanced Research Bootcamp</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1d0l6Uj19-1V5VkCLs2MWVoeVQGwL4QU-/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1d0l6Uj19-1V5VkCLs2MWVoeVQGwL4QU-/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="Prompt Engineering Microsoft AgentX professional certification">
+        <div class="cert-icon-box">🤖</div>
+        <p class="cert-name">Prompt Engineering</p>
+        <p class="cert-issuer">Microsoft & AgentX</p>
+        <p class="cert-date">Professional Certification</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1gBsNtpiIUXoyaUgrxhIO8hPwnmHX6UPI/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1gBsNtpiIUXoyaUgrxhIO8hPwnmHX6UPI/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="Computer Vision Bootcamp Innovative Skill BD intensive">
+        <div class="cert-icon-box">👁</div>
+        <p class="cert-name">Computer Vision Bootcamp</p>
+        <p class="cert-issuer">Innovative Skill BD</p>
+        <p class="cert-date">Intensive Training Certificate</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/drive/folders/1EL_kAYGl_9TXnnf5H1PuvEbYkC8FRADP" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/drive/folders/1EL_kAYGl_9TXnnf5H1PuvEbYkC8FRADP" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="IEEE Student Member Computer Society EMBS membership 2025">
+        <div class="cert-icon-box blue">🏛</div>
+        <p class="cert-name">IEEE Student Membership</p>
+        <p class="cert-issuer blue">IEEE — Computer Society + EMBS</p>
+        <p class="cert-date">Professional Membership · Since 2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1HoiQtV_Wnwwryl00cEY5j7cpa8Ws7t5x/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1HoiQtV_Wnwwryl00cEY5j7cpa8Ws7t5x/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="Art of Living Students Growth Leader GoEdu Online leadership">
+        <div class="cert-icon-box">🎓</div>
+        <p class="cert-name">Art of Living + Become A Leader</p>
+        <p class="cert-issuer">GoEdu — Online Learning Platform</p>
+        <p class="cert-date">Professional Development · 2022–2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1d2-jPRsih7aG75nSGjHVyOUYanS3SfSG/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1d2-jPRsih7aG75nSGjHVyOUYanS3SfSG/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+      <div class="cert-card" data-name="Contest Participation Certificate">
+        <div class="cert-icon-box">🏅</div>
+        <p class="cert-name">Contest Participation Certificate</p>
+        <p class="cert-issuer">Research & AI Competition</p>
+        <p class="cert-date">Competition · 2022–2025</p>
+        <div class="cert-btns">
+          <a href="https://drive.google.com/file/d/1r4nqN0jFNOZwUYH6VQIiCWj2Hawptj2B/view?usp=sharing" target="_blank" class="cb cb-view">👁 View</a>
+          <a href="https://drive.google.com/file/d/1r4nqN0jFNOZwUYH6VQIiCWj2Hawptj2B/view?usp=sharing" target="_blank" download class="cb cb-dl">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cv" class="section">
+  <div class="container">
+    <p class="sec-lab reveal">06 — CV</p>
+    <h2 class="sec-title reveal d1">Download My CV</h2>
+    <div class="sec-divider reveal d1"></div>
+    <p class="sec-sub reveal d2">Three tailored versions of my curriculum vitae — each optimized for a specific audience and purpose.</p>
+
+    <div class="cv-cards">
+      <div class="cv-card cv-r reveal">
+        <div class="cv-icon cv-icon-r">🔬</div>
+        <h3 class="cv-title">Research CV</h3>
+        <p class="cv-desc">Full academic profile — all publications, datasets, research methodology, IEEE memberships, thesis details. Ideal for PhD applications, grants, and academic positions.</p>
+        <div class="cv-tags"><span class="pill p-teal">Academic Focus</span><span class="pill p-teal">Full Publication List</span></div>
+        <a id="cv-r-btn" href="https://drive.google.com/file/d/1qrJWHWbxH8qVszOf08az_bXQMeIJ_ZaT/view?usp=drive_link" target="_blank" class="cv-dl cv-dl-r">⬇ Download Research CV</a>
+      </div>
+      <div class="cv-card cv-l reveal d1">
+        <div class="cv-icon cv-icon-l">📐</div>
+        <h3 class="cv-title">LaTeX CV</h3>
+        <p class="cv-desc">Professionally typeset with LaTeX — the most recent and polished version. Round photo, teal/navy academic design. Best for professional academic submissions and conferences.</p>
+        <div class="cv-tags"><span class="pill p-blue">LaTeX Typeset</span><span class="pill p-blue">Most Recent</span></div>
+        <a id="cv-l-btn" href="https://drive.google.com/file/d/1ZRWX-p0R1c_-TeYEYFCJvGqcVyKVCY8k/view?usp=drive_link" target="_blank" class="cv-dl cv-dl-l">⬇ Download LaTeX CV</a>
+      </div>
+      <div class="cv-card cv-g reveal d2">
+        <div class="cv-icon cv-icon-g">📄</div>
+        <h3 class="cv-title">General CV</h3>
+        <p class="cv-desc">Clean, ATS-optimized resume for industry roles — Data Analyst, ML Engineer, AI Researcher. Concise two-page summary. Best for job applications and industry positions.</p>
+        <div class="cv-tags"><span class="pill p-gold">Industry Ready</span><span class="pill p-gold">ATS Optimized</span></div>
+        <a id="cv-g-btn" href="https://drive.google.com/file/d/1eUb0GR3u0cD9IT9Q7k_H-pQxl1KAUUKO/view?usp=drive_link" target="_blank" class="cv-dl cv-dl-g">⬇ Download General CV</a>
+      </div>
+    </div>
+
+    <div class="cv-admin reveal">
+      <p class="cv-admin-title">Admin Panel — Update CV Links via Google Drive File ID</p>
+      <p class="cv-admin-sub">Find your File ID in the Drive URL: drive.google.com/file/d/<strong style="color:var(--teal3)">FILE_ID_HERE</strong>/view — paste below and click Update.</p>
+      <div class="cv-admin-row">
+        <div class="cv-admin-grp">
+          <label class="cv-admin-lbl">Research CV File ID</label>
+          <input type="text" id="cv-id-r" class="cv-admin-in" placeholder="Paste File ID...">
+        </div>
+        <div class="cv-admin-grp">
+          <label class="cv-admin-lbl">LaTeX CV File ID</label>
+          <input type="text" id="cv-id-l" class="cv-admin-in" placeholder="Paste File ID...">
+        </div>
+        <div class="cv-admin-grp">
+          <label class="cv-admin-lbl">General CV File ID</label>
+          <input type="text" id="cv-id-g" class="cv-admin-in" placeholder="Paste File ID...">
+        </div>
+        <button class="cv-admin-btn" onclick="updateCVs()">⚡ Update</button>
+      </div>
+      <p id="cv-msg" style="display:none;font-size:.78rem;color:var(--teal3);margin-top:.7rem;font-weight:600"></p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section section-alt">
+  <div class="container">
+    <p class="sec-lab reveal">07 — Contact</p>
+    <h2 class="sec-title reveal d1">Let's Connect</h2>
+    <div class="sec-divider reveal d1"></div>
+    <p class="sec-sub reveal d2">Open to research collaborations, data consulting, and academic partnerships. Reach out — I respond promptly.</p>
+    <div class="contact-layout">
+      <div class="reveal">
+        <div class="c-item"><div class="c-icon">📧</div><div><p class="c-label">Email</p><p class="c-val"><a href="mailto:marjan15-5126@diu.edu.bd">marjan15-5126@diu.edu.bd</a></p></div></div>
+        <div class="c-item"><div class="c-icon">📱</div><div><p class="c-label">Phone</p><p class="c-val">+880 1610-465168</p></div></div>
+        <div class="c-item"><div class="c-icon">📍</div><div><p class="c-label">Location</p><p class="c-val">Sharankhola, Bagerhat, Bangladesh<br><small style="color:var(--text3)">~30 mins from the Sundarbans</small></p></div></div>
+        <div class="c-item"><div class="c-icon">🏛</div><div><p class="c-label">Institution</p><p class="c-val">Daffodil International University<br><small style="color:var(--text3)">CSE Department, Dhaka-1216</small></p></div></div>
+        <div class="soc-row">
+          <a href="https://github.com/shahriarmarjan" class="soc-btn" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/shahriarmarjan" class="soc-btn" target="_blank">LinkedIn</a>
+          <a href="https://scholar.google.com" class="soc-btn" target="_blank">Scholar</a>
+          <a href="https://researchgate.net/profile/Shahriar-Marjan" class="soc-btn" target="_blank">ResearchGate</a>
+          <a href="https://orcid.org/0000-0000-0000-0000" class="soc-btn" target="_blank">ORCID</a>
+        </div>
+      </div>
+      <div class="contact-form reveal d1">
+        <h3 style="font-size:.98rem;font-weight:600;color:var(--white);margin-bottom:1.35rem">Send a Message</h3>
+        <div class="form-group"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="Full name" id="fn"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="your@email.com" id="fe"></div>
+        <div class="form-group"><label class="form-label">Subject</label><input type="text" class="form-input" placeholder="Research collaboration, consulting..." id="fs"></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input form-textarea" placeholder="Your message..." id="fm"></textarea></div>
+        <button class="form-submit" onclick="sendMsg()">Send Message ✉</button>
+        <p id="fst" style="display:none;font-size:.78rem;color:var(--teal3);margin-top:.7rem;font-weight:500"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p style="margin-bottom:.4rem">Built with precision — <strong>Shahriar Marjan</strong> · Data Analyst & AI Researcher · Sharankhola, Bangladesh · 2025</p>
+  <p><a href="mailto:marjan15-5126@diu.edu.bd">marjan15-5126@diu.edu.bd</a> &nbsp;·&nbsp; <a href="https://github.com/shahriarmarjan" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/shahriarmarjan" target="_blank">LinkedIn</a> &nbsp;·&nbsp; <a href="https://researchgate.net/profile/Shahriar-Marjan" target="_blank">ResearchGate</a></p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));
+
+function toggleNav(){
+  const l=document.getElementById('nav-ul');
+  const open=l.style.display==='flex';
+  l.style.cssText=open?'':
+    'display:flex;flex-direction:column;position:fixed;top:62px;left:0;right:0;background:rgba(14,30,53,.97);backdrop-filter:blur(22px);padding:1.5rem 2rem;gap:1.5rem;border-bottom:1px solid rgba(255,255,255,.08);z-index:199;box-shadow:0 8px 32px rgba(0,0,0,.25)';
+}
+
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(scrollY>=s.offsetTop-100)cur=s.id});
+  document.querySelectorAll('.nav-ul a').forEach(a=>{
+    a.classList.toggle('on',a.getAttribute('href')==='#'+cur);
+  });
+});
+
+function fp(cat,btn){
+  document.querySelectorAll('.fpill').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.proj-card').forEach(c=>{
+    c.style.display=(cat==='all'||(c.dataset.cat||'').includes(cat))?'':'none';
+  });
+}
+
+function sc(q){
+  q=q.toLowerCase();
+  document.querySelectorAll('.cert-card').forEach(c=>{
+    c.style.display=((c.dataset.name||'')+c.innerText).toLowerCase().includes(q)?'':'none';
+  });
+}
+
+function updateCVs(){
+  const pairs=[['cv-id-r','cv-r-btn'],['cv-id-l','cv-l-btn'],['cv-id-g','cv-g-btn']];
+  let n=0;
+  pairs.forEach(([iId,bId])=>{
+    const id=document.getElementById(iId).value.trim();
+    if(id){document.getElementById(bId).href=`https://drive.google.com/uc?export=download&id=${id}`;n++;}
+  });
+  const m=document.getElementById('cv-msg');
+  m.style.display='block';
+  m.textContent=n?`✓ ${n} CV link(s) updated successfully.`:'Enter at least one File ID to update.';
+  m.style.color=n?'var(--teal3)':'var(--gold)';
+  setTimeout(()=>m.style.display='none',4000);
+}
+
+function sendMsg(){
+  const n=document.getElementById('fn').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  const s=document.getElementById('fs').value.trim();
+  const m=document.getElementById('fm').value.trim();
+  if(!n||!e||!m){alert('Please fill in Name, Email and Message.');return}
+  window.location.href=`mailto:marjan15-5126@diu.edu.bd?subject=${encodeURIComponent(s||'Portfolio Enquiry')}&body=${encodeURIComponent(`Name: ${n}\nEmail: ${e}\n\n${m}`)}`;
+  const st=document.getElementById('fst');
+  st.style.display='block';
+  st.textContent='✓ Opening your email client...';
+}
+</script>
+</body>
+</html>
